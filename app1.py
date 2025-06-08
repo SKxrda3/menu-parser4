@@ -32,7 +32,7 @@ mysql_config = {
 }
 
 # Initialize EasyOCR reader once globally (English only)
-reader = easyocr.Reader(['en'], download_enabled=False)
+reader = easyocr.Reader(['en'], download_enabled=False,gpu=False)
 
 
 def extract_boxes(image_path, conf_threshold=0.6):
