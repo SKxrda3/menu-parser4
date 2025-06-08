@@ -1,6 +1,9 @@
 import sys
 sys.path.insert(0, '/opt/render/.venv/lib/python3.11/site-packages')
 import os
+
+os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
+
 os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
 import numpy as np
 import resource
