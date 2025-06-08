@@ -1,9 +1,15 @@
+import sys
+sys.path.insert(0, '/opt/render/.venv/lib/python3.11/site-packages')
 import os
 os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
 import numpy as np
+import resource
+resource.setrlimit(resource.RLIMIT_AS, (800_000_000, 800_000_000))  # 800MB limit
+os.environ["OPENCV_IO_MAX_IMAGE_PIXELS"] = "1000000000"  # Prevent large image issues
 
+np.__version__  # Ensure it's 1.x
 from flask import Flask, request, jsonify
-import os
+
 import re
 import tempfile
 import mysql.connector as mysql
